@@ -5,12 +5,13 @@ package events;
 option java_package = "pbouda.testdata.articles";
 
 message Article {
-    string authorId = 1;
-    string authorEmail = 2;
-    string authorName = 3;
-    string title = 4;
-    string url = 5;
-    string city = 6;
-    string country = 7;
-    string content = 8;
+    int32 articleId= 1;
+    string authorId = 2;
+    string authorEmail = 3;
+    string authorName = 4;
+    string title = 5;
+    string url = 6;
+    string city = 7;
+    string country = 8;
+    string content = 9;
 }

@@ -27,6 +27,7 @@ public class KafkaEventPublisher implements AutoCloseable {
 
     public boolean publish(Article article) {
         Articles.Article articleProto = Articles.Article.newBuilder()
+                .setArticleId(article.articleId)
                 .setAuthorId(article.authorId)
                 .setAuthorEmail(article.authorEmail)
                 .setAuthorName(article.authorName)
