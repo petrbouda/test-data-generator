@@ -16,7 +16,8 @@ public class KafkaGenerator {
         try (var kafkaPublisher = new KafkaEventPublisher(KAFKA_SERVER, KAFKA_TOPIC)) {
             for (int i = 0; i < EVENT_COUNT; i++) {
                 LOG.info("Event: " + i);
-                kafkaPublisher.publish(Article.create(i));
+                Article article = Article.create(i);
+                kafkaPublisher.publish(article);
             }
         }
     }
