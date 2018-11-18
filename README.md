@@ -22,10 +22,10 @@ static class Article {
 
 ```
 // Volumes ensure that we don't need to populate containers every time when we kill it
-docker run -d -p 9042:9042 --name cassandra -v ~/volumes/cassandra:/var/lib/cassandra cassandra:3.11.3 && \
+docker run -d -p 9042:9042 --name cassandra -v ~/volumes/cassandra:/var/lib/cassandra cassandra:3.11.3
+
 docker run -d -p 2181:2181 --name zookeeper wurstmeister/zookeeper && \
 docker run -d -p 9092:9092 --name kafka -h kafka --link zookeeper:zookeeper \
--v ~/volumes/kafka:/kafka -v /var/run/docker.sock:/var/run/docker.sock \
 -e KAFKA_ADVERTISED_HOST_NAME=127.0.0.1 -e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 wurstmeister/kafka
 
 
