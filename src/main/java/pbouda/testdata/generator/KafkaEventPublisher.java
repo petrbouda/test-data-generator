@@ -11,8 +11,6 @@ import pbouda.testdata.articles.Articles;
 
 import java.util.Properties;
 
-import static java.lang.String.format;
-
 public class KafkaEventPublisher implements AutoCloseable {
 
     private static final Logger LOG = LoggerFactory.getLogger(KafkaEventPublisher.class);
@@ -51,11 +49,6 @@ public class KafkaEventPublisher implements AutoCloseable {
     private static Properties createProducerProperties(String bootstrapServers) {
         final Properties props = new Properties();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
-        String allocId = System.getenv("NOMAD_ALLOC_ID");
-        if (allocId != null) {
-            long threadId = Thread.currentThread().getId();
-            props.put(ProducerConfig.CLIENT_ID_CONFIG, format("%s-%d", allocId, threadId));
-        }
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class.getName());
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, ByteArraySerializer.class.getName());
         return props;
