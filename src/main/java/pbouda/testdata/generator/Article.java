@@ -29,7 +29,7 @@ public class Article {
                 LOREM.getUrl(),
                 LOREM.getCity(),
                 LOREM.getCountry(),
-                LOREM.getHtmlParagraphs(5, 500));
+                LOREM.getHtmlParagraphs(5, 100));
     }
 
     private Article(
